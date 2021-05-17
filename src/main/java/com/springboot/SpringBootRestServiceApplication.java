@@ -11,7 +11,8 @@ import com.springboot.controller.Library;
 import com.springboot.repository.LibraryRepository;
 
 @SpringBootApplication
-public class SpringBootRestServiceApplication implements CommandLineRunner{
+public class SpringBootRestServiceApplication {
+//public class SpringBootRestServiceApplication implements CommandLineRunner{
 
 	@Autowired
 	LibraryRepository repository;	//instead of creating object
@@ -20,7 +21,7 @@ public class SpringBootRestServiceApplication implements CommandLineRunner{
 		SpringApplication.run(SpringBootRestServiceApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void run(String[] args) {
 		
 		Library lib = repository.findById("fdsefr343").get();
@@ -43,7 +44,7 @@ public class SpringBootRestServiceApplication implements CommandLineRunner{
 		entity.setIsbn("test");
 		entity.setId("test123");
 		
-		//repository.save(entity);	//Commented as we have already inserted 
+		repository.save(entity);	//Commented as we have already inserted 
 									//the records initially
 		
 		//To fetch all the records from the table
@@ -59,5 +60,6 @@ public class SpringBootRestServiceApplication implements CommandLineRunner{
 		repository.delete(entity);
 	}
 	
+	*/
 
 }
