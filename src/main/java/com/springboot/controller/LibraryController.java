@@ -36,19 +36,19 @@ public class LibraryController {
 	public ResponseEntity addBookImplementation(@RequestBody Library library) {
 		
 		//String id = library.getIsbn()+library.getAisle();
-		String id = libraryService.buildId(library.getIsbn(),library.getAisle());
+		String id = libraryService.buildId(library.getIsbn(),library.getAisle());//dependency - Mock for unit test
 		
 		//Add Book details into database
 		//JPA Repository - save()
 		
 		AddResponse ar = new AddResponse();
 		
-		if(!libraryService.checkBookAlreadyExists(id)) {
+		if(!libraryService.checkBookAlreadyExists(id)) {	//dependency - Mock
 			logger.info("Book doesn't exist. Creating one!");
 			
 		library.setId(id);
 		
-		repository.save(library);
+		repository.save(library);	//dependency - Mock
 		
 		HttpHeaders headers = new HttpHeaders(); //to add headers to the response
 		
